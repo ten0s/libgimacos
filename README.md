@@ -7,7 +7,7 @@ Build
 Install
 
 ```
-% make install PREFIX=/usr/local/lib
+% make install [PREFIX=/usr/local]
 ```
 
 Test
