@@ -1,0 +1,5 @@
+*.o
+*.dylib
+*.gir
+*.typelib
+tmp-introspect*
