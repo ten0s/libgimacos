@@ -8,6 +8,11 @@ SYM_PREFIX=gi_macos_lib
 LIB_FILE=lib$(LIB_NAME).dylib
 GIR_FILE=$(NAMESPACE)-$(NSVERSION).gir
 TYPELIB_FILE=$(NAMESPACE)-$(NSVERSION).typelib
+LIB_DIR=lib
+SHARE_DIR=share
+GIR_DIR=$(SHARE_DIR)/gir-1.0
+TYPELIB_DIR=$(LIB_DIR)/girepository-1.0
+PREFIX ?= `pwd`
 
 all: $(TYPELIB_FILE)
 
@@ -37,7 +42,14 @@ $(TYPELIB_FILE): $(GIR_FILE)
 	g-ir-compiler $^ --output=$@
 
 install:
-	echo make install PREFIX=$(PREFIX)
+	mkdir -p $(PREFIX)/$(LIB_DIR)
+	mkdir -p $(PREFIX)/$(GIR_DIR)
+	mkdir -p $(PREFIX)/$(TYPELIB_DIR)
+	mv $(LIB_FILE) $(PREFIX)/$(LIB_DIR)
+	mv $(GIR_FILE) $(PREFIX)/$(GIR_DIR)
+	mv $(TYPELIB_FILE) $(PREFIX)/$(TYPELIB_DIR)
 
 clean:
-	rm -rf *.o *.dylib *.gir *.typelib tmp-introspect*
+	rm -f *.o *.dylib *.gir *.typelib
+	rm -rf $(PREFIX)/$(LIB_DIR) $(PREFIX)/$(SHARE_DIR)
+	rm -rf tmp-introspect*
