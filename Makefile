@@ -36,5 +36,8 @@ $(GIR_FILE): $(LIB_FILE)
 $(TYPELIB_FILE): $(GIR_FILE)
 	g-ir-compiler $^ --output=$@
 
+install:
+	echo make install PREFIX=$(PREFIX)
+
 clean:
 	rm -rf *.o *.dylib *.gir *.typelib tmp-introspect*

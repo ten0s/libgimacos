@@ -4,6 +4,12 @@ Build
 % make
 ```
 
+Install
+
+```
+% make install PREFIX=/usr/local/lib
+```
+
 Test
 
 ```
