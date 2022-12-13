@@ -4,7 +4,7 @@ LIBS=`pkg-config --libs glib-2.0` -framework AppKit
 NAMESPACE=MacOSLib
 NSVERSION=1.0
 LIB_NAME=gimacos
-PREFIX=gi_macos_lib
+SYM_PREFIX=gi_macos_lib
 LIB_FILE=lib$(LIB_NAME).dylib
 GIR_FILE=$(NAMESPACE)-$(NSVERSION).gir
 TYPELIB_FILE=$(NAMESPACE)-$(NSVERSION).typelib
@@ -28,7 +28,7 @@ $(GIR_FILE): $(LIB_FILE)
 		--library=$(LIB_NAME)            \
 		--namespace=$(NAMESPACE)         \
 		--nsversion=$(NSVERSION)         \
-		--symbol-prefix=$(PREFIX)        \
+		--symbol-prefix=$(SYM_PREFIX)    \
 		--identifier-prefix=$(NAMESPACE) \
 		--include=GLib-2.0               \
 		--output=$@
