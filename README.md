@@ -20,7 +20,9 @@ MacOS Lib via GObject Introspection
 ## Test
 
 ```
-% DYLD_LIBRARY_PATH=`pwd` GI_TYPELIB_PATH=`pwd` gjs test-gjs.js
+% export DYLD_LIBRARY_PATH=`pwd` GI_TYPELIB_PATH=`pwd`
+% gjs test-gjs.js
+% gjs test-gjs-gtk.js
 ```
 
 ## License
