@@ -2,6 +2,23 @@
 
 extern OSErr CPSSetProcessName(ProcessSerialNumber *psn, const char *name);
 
+void macos_disable_zoom_button()
+{
+    NSWindow *window = NSApp.mainWindow;
+    if (window) {
+        NSWindowCollectionBehavior behavior = window.collectionBehavior;
+        behavior &= ~(
+            NSWindowCollectionBehaviorFullScreenPrimary |
+            NSWindowCollectionBehaviorFullScreenAuxiliary
+        );
+        behavior |= NSWindowCollectionBehaviorFullScreenNone;
+        window.collectionBehavior = behavior;
+
+        NSButton *button = [window standardWindowButton:NSWindowZoomButton];
+        button.enabled = NO;
+    }
+}
+
 void macos_force_foreground_level()
 {
     [NSApp activateIgnoringOtherApps:YES];

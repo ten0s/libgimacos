@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+void macos_disable_zoom_button();
 void macos_force_foreground_level();
 void macos_set_dock_badge_label(const char *label);
 int macos_set_process_name(const char *name);

@@ -1,5 +1,6 @@
 MacOS Lib via GObject Introspection
 
+* Disables zoom button
 * Forces foreground level
 * Sets dock badge label
 * Sets process name

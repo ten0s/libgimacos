@@ -2,6 +2,17 @@
 #include "macos.h"
 
 /**
+ * gi_macos_lib_disable_zoom_button:
+ *
+ * Disables zoom button.
+ */
+void
+gi_macos_lib_disable_zoom_button()
+{
+    macos_disable_zoom_button();
+}
+
+/**
  * gi_macos_lib_force_foreground_level:
  *
  * Forces foreground level.
