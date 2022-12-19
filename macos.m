@@ -37,3 +37,7 @@ void macos_set_dock_badge_label(const char *label)
     NSApp.dockTile.badgeLabel = @(label);
     [NSApp.dockTile display];
 }
+
+// TODO:
+// https://developer.apple.com/documentation/appkit/nsapplication/1428744-applicationiconimage?language=objc
+// NSApp.applicationIconImage
