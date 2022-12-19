@@ -4,8 +4,10 @@ extern OSErr CPSSetProcessName(ProcessSerialNumber *psn, const char *name);
 
 void macos_disable_zoom_button()
 {
-    NSWindow *window = NSApp.mainWindow;
-    if (window) {
+    // NSApp.mainWindow is nil in BigSur and Monterey.
+    // Brute force over all windows.
+    NSArray *windows = NSApp.windows;
+    for (NSWindow *window in windows) {
         NSWindowCollectionBehavior behavior = window.collectionBehavior;
         behavior &= ~(
             NSWindowCollectionBehaviorFullScreenPrimary |
