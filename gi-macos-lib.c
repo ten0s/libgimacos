@@ -27,7 +27,7 @@ gi_macos_lib_set_dock_badge_label(const char *label)
 
 /**
  * gi_macos_lib_set_process_name:
- * @name: (transfer: none) (not nullable): Process name
+ * @name: (transfer none) (not nullable): Process name
  *
  * Sets process name.
  */
