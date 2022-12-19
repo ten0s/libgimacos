@@ -5,15 +5,18 @@ const MacOSLib = imports.gi.MacOSLib
 Gtk.init(null)
 
 const title = 'Hello'
+const resizable = false
 const window = new Gtk.Window({
     title,
+    resizable,
     window_position: Gtk.WindowPosition.CENTER,
-    resizable: false,
 })
 window.set_default_size(250, 100)
 window.connect('show', () => {
     setTimeout(() => {
-        MacOSLib.disable_zoom_button()
+        if (!resizable) {
+            MacOSLib.disable_zoom_button()
+        }
         MacOSLib.force_foreground_level()
         MacOSLib.set_process_name(title)
     }, 0)
