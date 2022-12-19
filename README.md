@@ -1,6 +1,7 @@
 MacOS Lib via GObject Introspection
 
 * Forces foreground level
+* Sets dock badge label
 * Sets process name
 
 ## Build

@@ -17,6 +17,6 @@ int macos_set_process_name(const char *name)
 
 void macos_set_dock_badge_label(const char *label)
 {
-    [[NSApp dockTile] setBadgeLabel:@(label)];
-    [[NSApp dockTile] display];
+    NSApp.dockTile.badgeLabel = @(label);
+    [NSApp.dockTile display];
 }
