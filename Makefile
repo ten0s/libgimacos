@@ -4,7 +4,7 @@ LIBS=`pkg-config --libs glib-2.0` -framework AppKit
 NAMESPACE=MacOSLib
 NSVERSION=1.0
 LIB_NAME=gimacos
-SYM_PREFIX=gi_macos_lib
+SYM_PREFIX=gi_macos
 LIB_FILE=lib$(LIB_NAME).dylib
 GIR_FILE=$(NAMESPACE)-$(NSVERSION).gir
 TYPELIB_FILE=$(NAMESPACE)-$(NSVERSION).typelib
@@ -19,15 +19,15 @@ all: $(TYPELIB_FILE)
 %.o: %.c %.m
 	gcc -c $< $(CFLAGS) -o $@
 
-gi-macos-lib.o: gi-macos-lib.h macos.o
+gi-macos.o: gi-macos.h macos.o
 
 macos.o: macos.h
 
-$(LIB_FILE): gi-macos-lib.o macos.o
+$(LIB_FILE): gi-macos.o macos.o
 	gcc -shared $^ $(CFLAGS) $(LIBS) -o $@
 
 $(GIR_FILE): $(LIB_FILE)
-	g-ir-scanner gi-macos-lib.[ch]       \
+	g-ir-scanner gi-macos.[ch]           \
 		--warn-all                       \
 		--library-path=`pwd`             \
 		--library=$(LIB_NAME)            \
