@@ -1,4 +1,4 @@
-MacOS Lib via GObject Introspection
+MacOS Lib via [GObject Introspection](https://gi.readthedocs.io/en/latest/)
 
 * Disables zoom button
 * Forces foreground level
