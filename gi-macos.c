@@ -31,7 +31,7 @@ gi_macos_force_foreground_level()
  * To remove the badge's label, set it to an empty string.
  */
 void
-gi_macos_set_dock_badge_label(const char *label)
+gi_macos_set_dock_badge_label(const gchar *label)
 {
     macos_set_dock_badge_label(label);
 }
